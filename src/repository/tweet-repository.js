@@ -41,16 +41,6 @@ class TweetRepository {
         }
     }
 
-    async update(id, data) {
-        try {
-            const updatedTweet = await Tweet.findByIdAndUpdate(id, data, {new: true});
-            return updatedTweet;
-        } catch (error) {
-            console.log("Something went wrong in repository layer");
-            throw error;
-        }
-    }
-
     async destory(id) {
         try {
             await Tweet.findByIdAndRemove(id);
@@ -60,8 +50,6 @@ class TweetRepository {
             throw error;
         }
     }
-
-    
 }
 
 module.exports = TweetRepository;
